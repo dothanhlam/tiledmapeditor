@@ -11,5 +11,49 @@
 						http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    
+    <context:component-scan base-package="org.catapult.app.tiledmapeditor.controller" />	
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <context:annotation-config />
+
+	<mvc:annotation-driven
+		content-negotiation-manager="cnManager" />
+
+	<bean id="cnManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension" value="true" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="defaultContentType" value="text/html" />
+		<property name="useJaf" value="false" />
+
+		<property name="mediaTypes">
+			<map>
+				<entry key="html" value="text/html" />
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+			</map>
+		</property>		
+	</bean>
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="contentNegotiationManager" ref="cnManager" />
+
+		<property name="viewResolvers">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/" />
+					<property name="suffix" value=".jsp" />
+				</bean>			
+			</list>
+		</property>		
+	</bean>
+	
+	
+	<jpa:repositories base-package="org.catapult.app.tiledmapeditor.repository"/>
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="defaultPersistenceUnit"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

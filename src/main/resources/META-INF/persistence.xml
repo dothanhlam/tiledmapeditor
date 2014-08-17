@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+ 
+    <persistence-unit name="defaultPersistenceUnit">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+ 
+        <properties>
+            <property name="hibernate.dialect" value="org.catapult.app.tiledmapeditor.dialect.SQLiteDialect" /> 
+            <property name="hibernate.connection.driver_class" value="org.sqlite.JDBC"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:local.db" />            
+            <property name="javax.persistence.jdbc.user" value="" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="hibernate.connection.charSet" value="UTF-8" />
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
