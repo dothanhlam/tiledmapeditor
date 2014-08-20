@@ -4,6 +4,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
  		<class>org.catapult.app.tiledmapeditor.entity.User</class>
  		<class>org.catapult.app.tiledmapeditor.entity.UserInfo</class> 		
+ 		<class>org.catapult.app.tiledmapeditor.entity.Project</class> 		
         <properties>
             <property name="hibernate.dialect" value="org.catapult.app.tiledmapeditor.dialect.SQLiteDialect" /> 
             <property name="hibernate.connection.driver_class" value="org.sqlite.JDBC"/>

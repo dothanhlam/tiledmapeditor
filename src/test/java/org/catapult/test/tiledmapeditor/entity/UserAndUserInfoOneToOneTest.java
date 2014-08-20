@@ -13,13 +13,7 @@ import org.junit.Test;
 
 
 public class UserAndUserInfoOneToOneTest extends EntityBasedTest {
-	Session session;
-	
-	@Before
-	public void createSession() {
-		session = em.unwrap(Session.class);	
-	}
-
+		
 	@Test
 	public void createConstrain() throws NoSuchAlgorithmException {
 					

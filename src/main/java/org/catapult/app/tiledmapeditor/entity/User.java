@@ -1,12 +1,14 @@
 package org.catapult.app.tiledmapeditor.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,6 +35,10 @@ public class User implements Serializable {
 	
 	@OneToOne(fetch = FetchType.LAZY, mappedBy="user", cascade=CascadeType.ALL)
 	private UserInfo userInfo;
+	
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
+	private Set<Project> projects;
 	
 	public User() {};
 	
