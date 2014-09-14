@@ -1,4 +1,4 @@
-package org.catapult.test.tiledmapeditor.entity;
+package org.catapult.unittest.tiledmapeditor.entity;
 
 import java.security.NoSuchAlgorithmException;
 

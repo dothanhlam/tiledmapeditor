@@ -1,4 +1,4 @@
-package org.catapult.test.tiledmapeditor.entity;
+package org.catapult.unittest.tiledmapeditor.entity;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
@@ -6,9 +6,7 @@ import java.util.Calendar;
 import org.catapult.app.tiledmapeditor.entity.User;
 import org.catapult.app.tiledmapeditor.entity.UserInfo;
 import org.catapult.app.tiledmapeditor.utils.MD5;
-import org.hibernate.Session;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 
